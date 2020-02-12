@@ -2,7 +2,7 @@ We need to avoid hard coding for the fowwlowing reasons:
 1- avoid repeating our code.
 2- avoid making same changes in different places.
 in this PL/SQL function i will show how to avoid hard coding in the follwing topics:
-1- Data type
+1- Data type defining in pl/sql 
 2- SQL statemnets
 3- Constant values and business rules 
 
