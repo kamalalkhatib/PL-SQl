@@ -1,5 +1,6 @@
 #pl/sql
-This project contains three examples about hard coding and how to void them.
-first one when we define data type in pl/sql.
-second when we write SQL statements in PL/SQL executable code.
-third when we define Constant values and business rules.
+Some people consider hard coding is just when you putting fixed numbers in 
+Your equations, but really hard coding is something more than that.
+For example when you define a data type or write an sql statement in your plsql 
+Code, or when you write an equation in the excitable code, 
+that is all code be considered as hard coded code
