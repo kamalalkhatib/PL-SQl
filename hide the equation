@@ -1,0 +1,24 @@
+     function f_hr_calc(p_st_dt date,p_ed_dt date,p_emp_id employee.emp_id%type,p_pos_id position.pos_id%type)
+ 	 return number
+ 	 is
+ 	    v_pos_sal_hr position.pos_sal_hr%type;
+	    v_em_w_hr emp_wk_hr.day_hr%type;-- emp work hours/week
+ 	    v_ov_tm_sal emp_sal.net_sal%type;--over time sal
+ 	    v_tot_tm_emp_sal.net_sal%type;--total time sal
+ 	    v_net_sal emp_sal.net_sal%type;--total sal after all and ded
+		v_basic_hrs number;
+        	v_over_time_sal number;
+		v_emp_sal number;
+ 	 begin
+--emp hours /week
+v_em_w_hr:=sal_select_sts_pkg.emp_sum_hrs(p_emp_id,p_st_dt,p_ed_dt);
+--pos_sal
+v_pos_sal_hr:=sal_select_sts_pkg. pos_sal(p_emp_id);
+--getting basic hours
+v_basic_hrs:=default_values_pkg.v_basic_hrs;
+-- getting over time salary/hrs
+v_over_time_sal:=default_values_pke.over_time_sal;
+-- getting emp salary
+v_emp_sal:=default_values_pke.sal_calc_equation(v_em_w_hr,v_pos_sal_hr);
+return v_emp_sal;        
+      end;
