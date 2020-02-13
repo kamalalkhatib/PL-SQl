@@ -36,7 +36,7 @@ we need to go everywhere and modify all the relevant SQL statements. Also we rep
 	(1)								(2)
 -- Hard Coding							   Not Hard Coding
 if v_em_w_hr>40 then					v_basic_hrs:=default_values_pkg.v_basic_hrs;--get the basic hours
-v_ov_tm_sal:=(v_em_w_hr-40)*(v_pos_sal_hr*1.5);		-- getting emp salary
+v_ov_tm_sal:=(v_em_w_hr-40)*(v_pos_sal_hr*1.5);		-- this function has the equation that used to calculate the sal
 							v_emp_sal:=default_values_pke.sal_calc_equation(v_em_w_hr,v_pos_sal_hr);	
 v_tot_tm_sal:=(40*v_pos_sal_hr)+v_ov_tm_sal;
 else
@@ -44,5 +44,6 @@ v_tot_tm_sal:=(v_em_w_hr*v_pos_sal_hr);
 end if;
 return v_tot_tm_sal; 
 end;  
-To avoid hard coding and repeating the code, I created a package constains all constant values and business rules, 
-so if we need to change anything we just change this package instead of making changes everywhere. 
+Instead of writing this equation here, or use these fixed numbers here, 
+we could Hide this equation and constant numbers behind a function 
+And if we need to change anything in the future we need to go to this function
