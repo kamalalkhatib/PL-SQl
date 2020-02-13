@@ -36,7 +36,8 @@ we need to go everywhere and modify all the relevant SQL statements. Also we rep
 	(1)								(2)
 -- Hard Coding							   Not Hard Coding
 if v_em_w_hr>40 then					v_basic_hrs:=default_values_pkg.v_basic_hrs;--get the basic hours
-v_ov_tm_sal:=(v_em_w_hr-40)*(v_pos_sal_hr*1.5);
+v_ov_tm_sal:=(v_em_w_hr-40)*(v_pos_sal_hr*1.5);		-- getting emp salary
+							v_emp_sal:=default_values_pke.sal_calc_equation(v_em_w_hr,v_pos_sal_hr);	
 v_tot_tm_sal:=(40*v_pos_sal_hr)+v_ov_tm_sal;
 else
 v_tot_tm_sal:=(v_em_w_hr*v_pos_sal_hr);
